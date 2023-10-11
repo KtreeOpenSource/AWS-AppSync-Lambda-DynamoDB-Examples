@@ -1,0 +1,15 @@
+#set($posts = [])
+#foreach($post in ${ctx.args.posts})
+    #set($map = {})
+    $util.qr($map.put("PK", $util.dynamodb.toString($post.PK)))
+    $util.qr($map.put("SK", $util.dynamodb.toString($post.SK)))
+    $util.qr($ids.add($map))
+#end
+
+
+{
+    "operation" : "BatchDeleteItem",
+    "tables" : {
+        "posts": $util.toJson($posts)
+    }
+}

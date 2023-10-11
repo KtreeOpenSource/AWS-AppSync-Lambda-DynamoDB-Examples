@@ -1,0 +1,18 @@
+#set($posts = [])
+#foreach($post in ${ctx.args.posts})
+    #set($map = {})
+    $util.qr($map.put("PK", $util.dynamodb.toString($post.PK)))
+    $util.qr($map.put("SK", $util.dynamodb.toString($post.SK)))
+    $util.qr($posts.add($map))
+#end
+
+
+{
+    "operation" : "BatchGetItem",
+    "tables" : {
+        "posts": {
+            "keys": $util.toJson($posts),
+            "consistentRead": true
+        }
+    }
+}

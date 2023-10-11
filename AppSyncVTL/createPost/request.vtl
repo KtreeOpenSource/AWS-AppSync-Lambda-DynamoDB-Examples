@@ -1,0 +1,9 @@
+{
+    "operation" : "PutItem",
+    "key" : {
+        "PK": $util.dynamodb.toDynamoDBJson($util.autoId()),
+        "SK": $util.dynamodb.toDynamoDBJson("post#$ctx.args.postStatus"),
+        "createdTime": $util.dynamodb.toDynamoDBJson($util.time.nowEpochSeconds()),
+    },
+    "attributeValues" : $util.dynamodb.toMapValuesJson($ctx.args)
+}

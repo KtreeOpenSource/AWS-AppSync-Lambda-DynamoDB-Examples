@@ -1,0 +1,11 @@
+{
+    "operation" : "Query",
+    "query" : {
+        ## Provide a query expression. 
+        "expression": "PK = :PK and SK = :SK",
+        "expressionValues" : {
+            ":PK" : $util.dynamodb.toDynamoDBJson($ctx.args.PK),
+	        ":SK"  :  $util.dynamodb.toDynamoDBJson($ctx.args.SK),
+        }
+    }
+}
