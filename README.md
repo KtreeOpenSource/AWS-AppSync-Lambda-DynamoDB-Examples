@@ -1,8 +1,26 @@
-# AWS-AppSync-DynamoDB-Resolvers
+# AWS-AppSync
+Table Name : posts
+Resolvers (VTL & JS)
+    -DynamoDB
+        -Query
+        -GetItem
+        -PutItem
+        -UpdateItem
+        -DeleteItem
+        -BatchGetItem
+        -BatchPutItem
+        -BatchDeleteItem
+    -Lambda
+        -invoke
 
-
-# Appsync JS folder contains all JS operations on dynamodb
-
-# Appsync VTL folder contains all request and response VTL templates for all operations
-
-# Table name : posts
+Lambda Operations
+    - Connects AWS Lambda to DynamoDB and performs actions
+           -Query
+            -GetItem
+            -PutItem
+            -UpdateItem
+            -DeleteItem
+            -BatchGetItem
+            -BatchWriteItem
+                -PutRequest
+                -DeleteRequest
